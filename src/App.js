@@ -1,15 +1,16 @@
-import React, { Component } from "react";
-import classNames from "classnames/bind";
-import styles from "./App.module.scss";
+import React, { Component } from 'react';
+import classNames from 'classnames/bind';
+import styles from './App.module.scss';
+import LayoutView from './components/LayoutView/LayoutView';
 
 const cx = classNames.bind(styles);
 
 class App extends Component {
   render() {
     return (
-      <header className={cx("header")}>
-        <h1>아이즈원 플레이어</h1>
-      </header>
+      <LayoutView>
+        <main>아이즈원 한정 영상 저장소</main>
+      </LayoutView>
     );
   }
 }
