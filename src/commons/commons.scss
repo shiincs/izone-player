@@ -1,0 +1,28 @@
+/* common variables */
+$mainColor: #FF7F50;
+
+/* Media Query Break-Points */
+
+@mixin mobilePortrait {
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin mobileLandscape {
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1025px) {
+    @content;
+  }
+}
