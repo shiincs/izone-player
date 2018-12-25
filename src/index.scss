@@ -146,10 +146,20 @@ table {
 }
 
 a {
+  // remove anchor tag default style
   text-decoration: none;
   cursor: pointer;
   outline: none;
   color: inherit;
+}
+
+button {
+  // remove button tag default style
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
 }
 
 /* SCSS NORMALIZE */
