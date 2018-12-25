@@ -1,0 +1,153 @@
+@import '../../commons/commons.scss';
+@import url('https://fonts.googleapis.com/css?family=Cute+Font');
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  @include mobilePortrait {
+    padding: 15px 0;
+  }
+
+  @include mobileLandscape {
+    padding: 15px 0;
+  }
+
+  @include tablet {
+    padding: 50px 0 70px;
+  }
+
+  @include desktop {
+    padding: 65px 0 85px;
+  }
+
+  .title {
+    font-family: 'Cute Font', cursive;
+    color: $mainColor;
+
+    @include mobilePortrait {
+      font-size: 2.0rem;
+    }
+
+    @include mobileLandscape {
+      font-size: 2.3rem;
+    }
+
+    @include tablet {
+      font-size: 2.5rem;
+    }
+
+    @include desktop {
+      font-size: 2.7rem;
+    }
+  }
+
+  .userMenu {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    .loginBtn {
+      padding: 5px;
+
+      &:hover {
+        border-bottom: 2px solid $mainColor;
+      }
+    }
+
+    .registerBtn {
+      padding: 5px;
+
+      &:hover {
+        border-bottom: 2px solid $mainColor;
+      }
+    }
+
+    @include mobilePortrait {
+      display: none;
+    }
+
+    @include mobileLandscape {
+      display: none;
+    }
+
+    @include tablet {
+      width: 90%;
+      font-size: 0.7rem;
+    }
+
+    @include desktop {
+      width: 85%;
+      font-size: 0.8rem;
+    }
+  }
+
+  .navMenu {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .navList {
+      display: flex;
+      justify-content: center;
+
+      .navItem {
+        border: 1px solid #ebebeb;
+        width: 100%;
+        white-space: nowrap;
+        text-align: center;
+
+        @include mobilePortrait {
+          display: none;
+        }
+
+        @include mobileLandscape {
+          display: none;
+        }
+
+        @include tablet {
+          font-size: 0.8rem;
+        }
+
+        @include desktop {
+          font-size: 1.0rem;
+        }
+
+        a {
+          display: block;
+
+          &:hover {
+            background-color: #ebebeb;
+            color: $mainColor;
+          }
+
+          @include tablet {
+            padding: 12px 7px;
+          }
+
+          @include desktop {
+            padding: 15px 11px;
+          }
+        }
+      }
+    }
+  }
+
+  .hamburger {
+    position: absolute;
+    left: 10px;
+    height: 32px;
+
+
+    @include tablet {
+      display: none;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import '../../commons/commons.scss';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
+
+/* 공통 코드 */
+.footer {
+  background-color: #cbcbcb;
+  width: 100%;
+  padding: 15px 10px;
+
+  @include mobileLandscape {
+    padding: 15px 20px;
+  }
+
+  @include tablet {
+    padding: 15px 20px;
+  }
+
+  @include desktop {
+    padding: 20px 30px;
+  }
+
+  .copyright {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+
+    @include mobilePortrait {
+      font-size: 0.8rem;
+    }
+
+    @include mobileLandscape {
+      font-size: 0.9rem;
+    }
+
+    @include tablet {
+      font-size: 1.0rem;
+    }
+
+    @include desktop {
+      font-size: 1.1rem;
+    }
+  }
+}
