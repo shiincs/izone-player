@@ -141,6 +141,22 @@
     left: 10px;
     height: 32px;
 
+    @include tablet {
+      display: none;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  .closeBtn {
+    display: none;
+    position: absolute;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid blue;
 
     @include tablet {
       display: none;
@@ -148,6 +164,77 @@
 
     @include desktop {
       display: none;
+    }
+
+    &.open {
+      display: block;
+    }
+  }
+
+  .menuBar {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+
+    @include mobilePortrait {
+      width: 200px;
+    }
+
+    @include mobileLandscape {
+      width: 250px;
+    }
+
+    @include tablet {
+      display: none;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    // menuBar가 열리면 display: flex로 전환되면서 화면에 나타난다.
+    &.open {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .userInfo {
+      background-color: #ebebeb;
+      padding: 10px 0;
+
+      .userName {
+        display: inline-block;
+        padding: 0 0 10px 10px;
+      }
+
+      .userBtns {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 10px;
+
+        .loginBtn {
+          padding-left: 5px;
+        }
+
+        .registerBtn {
+          padding-left: 5px;
+        }
+      }
+    }
+
+    .navBtns {
+
+      .navItem {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 25px;
+        border-top: 1px solid #ccc;
+      }
     }
   }
 }

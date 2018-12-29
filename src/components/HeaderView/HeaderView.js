@@ -80,9 +80,79 @@ export default class HeaderView extends Component {
           </ul>
         </nav>
 
+        {/* 모바일 사이즈에서 네비게이션 바가 햄버거 메뉴로 전환된다. */}
         <button className={cx('hamburger')}>
           <Hamburger />
         </button>
+        <button className={cx('closeBtn', 'open')}>X</button>
+
+        {/* 햄버거 메뉴 클릭시 등장하는 메뉴 바 */}
+        <section className={cx('menuBar', 'open')}>
+          <div className={cx('userInfo')}>
+            <span className={cx('userName')}>로그인 해주세요</span>
+            <ul className={cx('userBtns')}>
+              <li className={cx('loginBtn')}>
+                <Link to='/'>로그인</Link>
+              </li>
+              <li className={cx('registerBtn')}>
+                <Link to='/'>회원가입</Link>
+              </li>
+            </ul>
+          </div>
+          <ul className={cx('navBtns')}>
+            <li className={cx('navItem')}>
+              <Link to='/'>전체</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>장원영</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>미야와키 사쿠라</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>조유리</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>최예나</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>안유진</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>야부키 나코</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>권은비</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>강혜원</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>혼다 히토미</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>김채원</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>김민주</Link>
+            </li>
+
+            <li className={cx('navItem')}>
+              <Link to='/'>이채연</Link>
+            </li>
+          </ul>
+        </section>
       </header>
     );
   }
