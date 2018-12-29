@@ -1,6 +1,28 @@
 @import '../../commons/commons.scss';
 @import url('https://fonts.googleapis.com/css?family=Cute+Font');
 
+@mixin handleMenuBar($left) {
+  @keyframes menuBarOpen {
+    0% {
+      left: $left;
+    }
+
+    100% {
+      left: 0;
+    }
+  }
+
+  @keyframes menuBarClose {
+    0% {
+      left: 0;
+    }
+
+    100% {
+      left: $left;
+    }
+  }
+}
+
 .header {
   position: relative;
   display: flex;
@@ -28,7 +50,7 @@
     color: $mainColor;
 
     @include mobilePortrait {
-      font-size: 2.0rem;
+      font-size: 2rem;
     }
 
     @include mobileLandscape {
@@ -113,7 +135,7 @@
         }
 
         @include desktop {
-          font-size: 1.0rem;
+          font-size: 1rem;
         }
 
         a {
@@ -154,9 +176,9 @@
     display: none;
     position: absolute;
     left: 10px;
-    width: 30px;
-    height: 30px;
-    border: 1px solid blue;
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
 
     @include tablet {
       display: none;
@@ -172,33 +194,43 @@
   }
 
   .menuBar {
-    display: none;
     position: fixed;
-    top: 50px;
-    left: 0;
+    top: 60px;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
 
     @include mobilePortrait {
       width: 200px;
+      left: -200px;
+      // FIXME: menuBar 최초 load시 animation 발생 제거해야 함
+      animation: menuBarClose 1s;
     }
 
     @include mobileLandscape {
       width: 250px;
-    }
-
-    @include tablet {
-      display: none;
-    }
-
-    @include desktop {
-      display: none;
+      left: -250px;
+      // FIXME: menuBar 최초 load시 animation 발생 제거해야 함
+      animation: menuBarClose 1s;
     }
 
     // menuBar가 열리면 display: flex로 전환되면서 화면에 나타난다.
     &.open {
       display: flex;
       flex-direction: column;
+      left: 0;
+
+      @include mobilePortrait {
+        width: 200px;
+        @include handleMenuBar(-200px);
+        animation: menuBarOpen 1s;
+      }
+
+      @include mobileLandscape {
+        width: 250px;
+        @include handleMenuBar(-250px);
+        animation: menuBarOpen 1s;
+      }
     }
 
     .userInfo {
@@ -208,12 +240,14 @@
       .userName {
         display: inline-block;
         padding: 0 0 10px 10px;
+        font-size: 1.1rem;
       }
 
       .userBtns {
         display: flex;
         justify-content: flex-end;
-        padding-right: 10px;
+        padding: 10px 10px 0 0;
+        font-size: 0.9rem;
 
         .loginBtn {
           padding-left: 5px;
@@ -226,14 +260,13 @@
     }
 
     .navBtns {
-
       .navItem {
         display: inline-flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 25px;
-        border-top: 1px solid #ccc;
+        height: 30px;
+        border-bottom: 1px solid #ccc;
       }
     }
   }

@@ -3,11 +3,17 @@ import classNames from 'classnames/bind';
 import styles from './HeaderView.module.scss';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Hamburger } from '../../commons/hamburger.svg';
+import { ReactComponent as Close } from '../../commons/close.svg';
 
 const cx = classNames.bind(styles);
 
 export default class HeaderView extends Component {
+  state = {
+    hamburgerOpen: false,
+  };
   render() {
+    const { hamburgerOpen } = this.state;
+
     return (
       <header className={cx('header')}>
         <h1 className={cx('title')}>
@@ -81,13 +87,29 @@ export default class HeaderView extends Component {
         </nav>
 
         {/* 모바일 사이즈에서 네비게이션 바가 햄버거 메뉴로 전환된다. */}
-        <button className={cx('hamburger')}>
+        <button
+          className={cx('hamburger')}
+          onClick={() =>
+            this.setState({
+              hamburgerOpen: true,
+            })
+          }
+        >
           <Hamburger />
         </button>
-        <button className={cx('closeBtn', 'open')}>X</button>
+        <button
+          className={cx('closeBtn', { open: hamburgerOpen })}
+          onClick={() =>
+            this.setState({
+              hamburgerOpen: false,
+            })
+          }
+        >
+          <Close />
+        </button>
 
         {/* 햄버거 메뉴 클릭시 등장하는 메뉴 바 */}
-        <section className={cx('menuBar', 'open')}>
+        <section className={cx('menuBar', { open: hamburgerOpen })}>
           <div className={cx('userInfo')}>
             <span className={cx('userName')}>로그인 해주세요</span>
             <ul className={cx('userBtns')}>
