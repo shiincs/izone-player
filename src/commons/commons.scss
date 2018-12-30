@@ -1,8 +1,7 @@
 /* common variables */
-$mainColor: #FF7F50;
+$coral: #ff7f50;
 
 /* Media Query Break-Points */
-
 @mixin mobilePortrait {
   @media screen and (min-width: 320px) and (max-width: 480px) {
     @content;
