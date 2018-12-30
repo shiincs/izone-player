@@ -9,8 +9,17 @@ const cx = classNames.bind(styles);
 
 export default class HeaderView extends Component {
   state = {
+    // 햄버거 메뉴 초기 상태를 false로 지정한다.
     hamburgerOpen: false,
   };
+
+  // 햄버거 메뉴 토글을 위한 메소드
+  handleHamburger = () => {
+    this.setState((prev) => ({
+      hamburgerOpen: !prev.hamburgerOpen,
+    }));
+  };
+
   render() {
     const { hamburgerOpen } = this.state;
 
@@ -88,24 +97,14 @@ export default class HeaderView extends Component {
 
         {/* 모바일 사이즈에서 네비게이션 바가 햄버거 메뉴로 전환된다. */}
         <button
-          className={cx('hamburger')}
-          onClick={() =>
-            this.setState({
-              hamburgerOpen: true,
-            })
-          }
+          className={cx(
+            { hamburger: !hamburgerOpen },
+            { closeBtn: hamburgerOpen },
+            { open: hamburgerOpen }
+          )}
+          onClick={() => this.handleHamburger()}
         >
-          <Hamburger />
-        </button>
-        <button
-          className={cx('closeBtn', { open: hamburgerOpen })}
-          onClick={() =>
-            this.setState({
-              hamburgerOpen: false,
-            })
-          }
-        >
-          <Close />
+          {hamburgerOpen ? <Close /> : <Hamburger />}
         </button>
 
         {/* 햄버거 메뉴 클릭시 등장하는 메뉴 바 */}

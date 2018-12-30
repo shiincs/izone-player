@@ -1,28 +1,6 @@
 @import '../../commons/commons.scss';
 @import url('https://fonts.googleapis.com/css?family=Cute+Font');
 
-@mixin handleMenuBar($left) {
-  @keyframes menuBarOpen {
-    0% {
-      left: $left;
-    }
-
-    100% {
-      left: 0;
-    }
-  }
-
-  @keyframes menuBarClose {
-    0% {
-      left: 0;
-    }
-
-    100% {
-      left: $left;
-    }
-  }
-}
-
 .header {
   position: relative;
   display: flex;
@@ -47,7 +25,7 @@
 
   .title {
     font-family: 'Cute Font', cursive;
-    color: $mainColor;
+    color: $coral;
 
     @include mobilePortrait {
       font-size: 2rem;
@@ -76,7 +54,7 @@
       padding: 5px;
 
       &:hover {
-        border-bottom: 2px solid $mainColor;
+        border-bottom: 2px solid $coral;
       }
     }
 
@@ -84,7 +62,7 @@
       padding: 5px;
 
       &:hover {
-        border-bottom: 2px solid $mainColor;
+        border-bottom: 2px solid $coral;
       }
     }
 
@@ -143,7 +121,7 @@
 
           &:hover {
             background-color: #ebebeb;
-            color: $mainColor;
+            color: $coral;
           }
 
           @include tablet {
@@ -199,19 +177,16 @@
     background-color: #fff;
     border-top: 1px solid #ccc;
     border-right: 1px solid #ccc;
+    transition: left 0.3s linear;
 
     @include mobilePortrait {
       width: 200px;
-      left: -200px;
-      // FIXME: menuBar 최초 load시 animation 발생 제거해야 함
-      animation: menuBarClose 1s;
+      left: -201px;
     }
 
     @include mobileLandscape {
       width: 250px;
-      left: -250px;
-      // FIXME: menuBar 최초 load시 animation 발생 제거해야 함
-      animation: menuBarClose 1s;
+      left: -251px;
     }
 
     // menuBar가 열리면 display: flex로 전환되면서 화면에 나타난다.
@@ -219,18 +194,6 @@
       display: flex;
       flex-direction: column;
       left: 0;
-
-      @include mobilePortrait {
-        width: 200px;
-        @include handleMenuBar(-200px);
-        animation: menuBarOpen 1s;
-      }
-
-      @include mobileLandscape {
-        width: 250px;
-        @include handleMenuBar(-250px);
-        animation: menuBarOpen 1s;
-      }
     }
 
     .userInfo {
