@@ -189,11 +189,27 @@
       left: -251px;
     }
 
+    @include tablet {
+      display: none;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
     // menuBar가 열리면 display: flex로 전환되면서 화면에 나타난다.
     &.open {
       display: flex;
       flex-direction: column;
       left: 0;
+
+      @include tablet {
+        display: none;
+      }
+
+      @include desktop {
+        display: none;
+      }
     }
 
     .userInfo {
