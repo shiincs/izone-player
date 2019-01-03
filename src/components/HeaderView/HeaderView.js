@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import classNames from 'classnames/bind';
 import styles from './HeaderView.module.scss';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Hamburger } from '../../commons/hamburger.svg';
-import { ReactComponent as Close } from '../../commons/close.svg';
+import { ReactComponent as Hamburger } from '../../utilities/hamburger.svg';
+import { ReactComponent as Close } from '../../utilities/close.svg';
 
 const cx = classNames.bind(styles);
 
