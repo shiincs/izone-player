@@ -162,6 +162,12 @@ button {
   outline: none;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* SCSS NORMALIZE */
 // @import "../node_modules/normalize-scss/sass/normalize";
 // @include normalize();
