@@ -2,4 +2,33 @@
 
 .listContainer {
   border: 1px solid $coral;
+  display: flex;
+  justify-content: center;
+
+  .list {
+    width: 85%;
+    border: 1px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 45px 30px;
+
+
+    .item {
+      width: calc(25%);
+      padding: 0 15px;
+      margin-bottom: 30px;
+
+      .content {
+        .video {
+          width: 100%;
+          height: auto;
+        }
+
+        .videoTitle {
+          text-align: center;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
 }
